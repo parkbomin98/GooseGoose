@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../../load_my_data.dart';
 import '../../memo_main_page.dart';
 import '../database/db.dart';
 import '../database/memo.dart';
@@ -46,10 +47,9 @@ class _EditPage extends State<EditPage> {
           IconButton(
             icon: const Icon(Icons.save),
             color: Colors.white,
-            onPressed: (){
-              saveDB();
+            onPressed: () async {
               Navigator.pop(context);
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MemoMain()),);
+              saveDB();
             },
           ),
         ],

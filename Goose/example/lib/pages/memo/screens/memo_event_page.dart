@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../load_my_data.dart';
 import './../screens/edit.dart';
 import './../database/db.dart';
 import './../database/memo.dart';
