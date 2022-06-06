@@ -46,8 +46,10 @@ class _EditPage extends State<EditPage> {
           IconButton(
             icon: const Icon(Icons.save),
             color: Colors.white,
-            onPressed: () async {
+            onPressed: (){
               saveDB();
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => MemoMain()),);
             },
           ),
         ],

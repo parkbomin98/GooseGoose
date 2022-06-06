@@ -213,7 +213,7 @@ class _MemoEventState extends State<MemoEvent> {
 
             return InkWell(
               onDoubleTap: () {
-                showAlertRefresh(parentContext);
+               showAlertRefresh(parentContext);
               },
               onLongPress: () {
                 setState(() {
@@ -222,10 +222,18 @@ class _MemoEventState extends State<MemoEvent> {
                 });
               }, //길게 누르면 삭제
               child: Container(
+                height: 600,
                 alignment: Alignment.center,
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(15),
                 margin: EdgeInsets.all(5),
                 decoration: BoxDecoration(
+                  /*
+                  image: const DecorationImage(
+                    image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1qpG7o-AZtARdfRmiYS29FR-NFWrGtKOcNQ&usqp=CAU'),
+                    fit: BoxFit.cover,
+                  ),
+                   */
                   color: Colors.lightBlueAccent,
                   border: Border.all(
                     color: Colors.white,
@@ -235,77 +243,73 @@ class _MemoEventState extends State<MemoEvent> {
                 ),
                 child: Column(
                   children: <Widget>[
+                    /*
+                      Scaffold(
+                        body: Image.network('https://picsum.photos/250?image=9'),
+                      ),
+                       */
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: SizedBox(
-                            height: 40,
-                            child: Text(
-                              memo.title,
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontFamily: 'Gamja_Flower',
-                              ),
-                              overflow: TextOverflow.ellipsis,
+                        SizedBox(
+                          height: 50,
+                          child: Text(
+                            memo.title,
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontFamily: 'Gamja_Flower',
                             ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: SizedBox(
-                            height: 20,
-                            child: Text(
-                              memo.text,
-                              style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontFamily: 'Gamja_Flower',
-                              ),
-                              overflow: TextOverflow.ellipsis,
+                        SizedBox(
+                          height: 30,
+                          child: Text(
+                            memo.text,
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontFamily: 'Gamja_Flower',
                             ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Flexible(
-                        fit: FlexFit.tight,
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: <Widget>[
-                              image != null
-                                  ? Image.file(
-                                      image!,
-                                      height: 320,
-                                      fit: BoxFit.cover,
-                                    )
-                                  : Image.asset('image/speaking.png'),
-                              ElevatedButton.icon(
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Colors.orangeAccent,
-                                  ),
-                                  onPressed: () => pickImage(),
-                                  icon: Icon(Icons.camera_alt),
-                                  label: Text('')),
-                              Text(
-                                "최종 수정 : " + memo.editTime.split('.')[0],
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontFamily: 'Gamja_Flower',
-                                ),
-                                textAlign: TextAlign.right,
-                              ),
-                            ]),
-                      ),
+                    SizedBox(
+                      height: 30,
                     ),
+                    Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          image != null
+                              ? Image.file(
+                            image!,
+                            height: 320,
+                            fit: BoxFit.cover,
+                          )
+                              : Image.asset('image/speaking.png'),
+                          ElevatedButton.icon(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.orangeAccent,
+                              ),
+                              onPressed: () => pickImage(),
+                              icon: Icon(Icons.camera_alt),
+                              label: Text('')),
+                          Text(
+                            "최종 수정 : " + memo.editTime.split('.')[0],
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontFamily: 'Gamja_Flower',
+                            ),
+                            textAlign: TextAlign.right,
+                          ),
+                        ]),
                   ],
                 ),
               ),
