@@ -14,6 +14,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'PhotoDBHelper.dart';
+import 'Photo.dart';
+import 'dart:async';
+
 class EditPage extends StatefulWidget {
   @override
   State<EditPage> createState() => _EditPage();
@@ -36,6 +40,48 @@ class _EditPage extends State<EditPage> {
     }
     // setState(() {});
   }
+
+  //이미지
+  late Future<File> imageFile;
+  late Image image;
+  late DBHelper dbHelper;
+  late List<Photo> images;
+  @override
+  void initState() {
+    super.initState();
+    images = [];
+    dbHelper = DBHelper();
+  }
+
+  // refreshImages(){
+  //   dbHelper.getPhotos().then((imgs)) {
+  //     images.clear();
+  //     images.addAll(imgs);
+  //   });
+  // }
+  //
+  // pickImageFromGallery(){
+  //   ImagePicker.pickImage(source: ImageSource.gallery).then((imgFile){
+  //     String imgString = Utility.base64String(imgFile.readAsBytesSync());
+  //     Photo photo = Photo(0, imgString);
+  //     dbHelper.save(photo);
+  //     refreshImages();
+  //   });
+  // }
+  //
+  // gridView() {
+  //   return Padding(
+  //     padding: EdgeInsets.all(5.0),
+  //     child: GridView.count(
+  //       crossAxisCount: 2,
+  //       childAspectRatio: 1.0,
+  //       mainAxisSpacing: 4.0,
+  //       children: images.map((photo) {
+  //         return Utiliy.imageFromBase64String(photo.photoName);
+  //       }).toList(),
+  //     )
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {

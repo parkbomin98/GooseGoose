@@ -38,6 +38,7 @@ dependencies:
   flutter_svg:
   fluttertoast:
   flutterfire_ui:
+  path_provider: ^2.0.11
 
   sqflite:
   crypto:
@@ -47,6 +48,7 @@ dependencies:
   kakao_flutter_sdk_user:
   geolocator: ^8.0.1
   timer_builder:
+
 
 dev_dependencies:
   flutter_test:
